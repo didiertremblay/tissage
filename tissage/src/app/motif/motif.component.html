@@ -1,0 +1,24 @@
+@for (row of motif; track $index) {
+    <div class="row-{{($index%2==1?'a':'b')}}">
+        @if ($index%2==0) {
+            <div class="square-row-index" >
+                A
+            </div>
+        } @else {
+            <div class="square-row-index" >
+                0
+            </div>
+            <div class="little-space"></div>
+        }
+
+        @for (col of row; track $index) {
+            <div 
+                class="square" 
+                [ngClass]="{'A': $index%2==1, 'B': $index%2==0}"
+                [ngStyle]="{'background-color': col.couleur}"
+                >
+                
+            </div>
+        }
+    </div>
+}

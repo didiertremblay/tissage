@@ -1,0 +1,15 @@
+@for (row of motif; track $index) {
+    <div class="">
+        @if ($index%2==0) {
+        } @else {
+            <span
+            [ngStyle]="{  color: 'white' }" 
+            >&block;</span>
+        }
+        @for (col of row; track $index) {
+            <span
+            [ngStyle]="{ color: col.couleur }" 
+            >&block;&block;</span>
+        }
+    </div>
+}

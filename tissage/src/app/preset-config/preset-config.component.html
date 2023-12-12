@@ -1,0 +1,14 @@
+<select name="" id="" [(ngModel)]="designIndex"
+(change)="loadDesign()"
+>
+    @for (item of getDesignsNames(); track $index) {
+        <option value="{{$index}}">{{item}}</option>
+    }
+</select>
+<!-- 
+<button class="btn btn-primary"
+(click)="loadDesign()"
+>
+    Load Design
+</button>
+-->

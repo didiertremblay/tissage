@@ -1,0 +1,54 @@
+<h1>Motif</h1>
+<div class="row-legend">
+    @for (i of legende; track $index) {
+        <div class="square square-legend" >
+            {{i}}
+        </div>
+}
+</div>
+<div class="clearfix"></div>
+@if (mode == 'css') {
+    <h1>Avec CSS</h1>
+    <app-motif [motif]="motif"></app-motif>
+} @else if (mode == 'cdk') {
+    <h1>Avec CDK</h1>
+    <app-motifcdk [motif]="motif"></app-motifcdk>
+} @else if (mode == 'svg') {
+    <h1>Avec CDK</h1>
+    <app-motifsvg [motif]="motif"></app-motifsvg>
+} @else if (mode == 'font') {
+    <h1>Avec CDK</h1>
+    <app-motiffont [motif]="motif"></app-motiffont>
+} @else if (mode == 'html') {
+
+} @else {
+
+}
+
+<div class="clearfix"></div>
+<h1>Carte</h1>
+
+@if (mode == 'css') {
+    @for (i of [].constructor(nbRangs/2); track $index) {
+        <app-motif [motif]="motif"></app-motif>
+    }
+} @else if (mode == 'cdk') {
+    <h1>Carte CDK</h1>
+    @for (i of [].constructor(nbRangs/2); track $index) {
+        <app-motifcdk [motif]="motif"></app-motifcdk>
+    }
+} @else if (mode == 'svg') {
+    <h1>Carte CDK</h1>
+    @for (i of [].constructor(nbRangs/2); track $index) {
+        <app-motifsvg [motif]="motif"></app-motifsvg>
+    }
+} @else if (mode == 'font') {
+    <h1>Carte Font</h1>
+    @for (i of [].constructor(nbRangs/2); track $index) {
+        <app-motiffont [motif]="motif"></app-motiffont>
+    }
+} @else if (mode == 'html') {
+
+} @else {
+
+}

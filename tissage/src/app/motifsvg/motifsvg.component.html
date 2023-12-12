@@ -1,0 +1,27 @@
+    @for (row of motif; track $index) {
+        <div class="">
+            @if ($index%2==0) {
+            } @else {
+                <svg width="10" height="20">
+                </svg>
+            }
+            @for (col of row; track $index) {
+                <svg width="25" height="25" >
+                <!-- 
+                    <rect width="20" height="20" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)" />
+                        y="-10"
+                        x="-0"
+                        transform="rotate(45)" 
+                    
+                -->
+                    <rect 
+                        width="25" 
+                        height="25" 
+                        style="stroke-width:3" 
+                        [ngStyle]="{ fill: col.couleur, stroke: 'grey'}" 
+                        
+                        />
+                  </svg>
+            }
+        </div>
+    }

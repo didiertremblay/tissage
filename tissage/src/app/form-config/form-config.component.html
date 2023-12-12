@@ -1,0 +1,74 @@
+<!-- Form for IConfig 
+    export interface IConfig {
+    name: string;
+    patron_date: string;
+    patron_chaine: string;
+    patron_trame: string;
+    patron_fils_chaine: string;
+    width: number;
+    height: number;
+    colors: string[];
+    commentaires: string;
+  }
+
+-->
+
+<form>
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control"
+        id="name" name="name"
+        [(ngModel)]="config.name"
+        />
+    </div>
+    <div class="form-group">
+        <label for="patron_date">Date</label>
+        <input type="text" class="form-control"
+        id="patron_date" name="patron_date"
+        [(ngModel)]="config.patron_date"
+        />
+    </div>
+    <div class="form-group">
+        <label for="patron_chaine">Chaine</label>
+        <input type="text" class="form-control"
+        id="patron_chaine" name="patron_chaine"
+        [(ngModel)]="config.patron_chaine"
+        />
+    </div>
+    <div class="form-group">
+        <label for="patron_trame">Trame</label>
+        <input type="text" class="form-control"
+        id="patron_trame" name="patron_trame"
+        [(ngModel)]="config.patron_trame"
+        />
+    </div>
+    <div class="form-group">
+        <label for="patron_fils_chaine">Fils Chaine</label>
+        <input type="text" class="form-control"
+        id="patron_fils_chaine" name="patron_fils_chaine"
+        [(ngModel)]="config.patron_fils_chaine"
+        />
+    </div>
+    <div class="form-group">
+        <label for="width">Width</label>
+        <input type="number" class="form-control"
+        id="width" name="width"
+        [(ngModel)]="config.width"
+        />
+    </div>
+    <div class="form-group">
+        <label for="height">Height</label>
+        <input type="number" class="form-control"
+        id="height" name="height"
+        [(ngModel)]="config.height"
+        />
+    </div>
+    <div class="form-group">
+        <label for="colors">Colors</label>
+        <input type="text" class="form-control"
+        id="colors" name="colors"
+        [(ngModel)]="config.colors"
+        />
+    </div>
+    <
+</form>

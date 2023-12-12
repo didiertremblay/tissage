@@ -1,0 +1,20 @@
+<mat-grid-list cols="{{motif[0].length*2}}" rowHeight="40px">
+    @for (row of motif; track $index) {
+        <div class="">
+            @if ($index%2==0) {
+            } @else {
+                <mat-grid-tile
+                colspan="1"
+                >
+                </mat-grid-tile>
+            }
+            @for (col of row; track $index) {
+                <mat-grid-tile
+                colspan="2"
+                [style.background]="col.couleur"
+                >
+                </mat-grid-tile>
+            }
+        </div>
+    }
+</mat-grid-list>

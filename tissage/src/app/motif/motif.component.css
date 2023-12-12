@@ -1,0 +1,193 @@
+/* Load our font for rendering...
+    @font-face {
+        font-family: 'fontname';
+        font-size: 72pt; 
+        src: url('Didier2sFont.ttf') format('truetype');
+    }
+     */
+
+     p {
+        font-family: "Arial", "Verdana", sans-serif;
+    }
+    
+    @media print {
+        body {
+            -webkit-print-color-adjust: exact;
+        }
+    
+        .noprint {
+            display: none;
+        }
+    
+        input {
+            border-width: 0px;
+            border: 0px solid red;
+        }
+    }
+    
+    input {
+        border: 1px solid #000000;
+        border-width: 0px 0px 1px 0px;
+        outline: 0;
+        height: 25px;
+    }
+    
+    /*
+            .example {
+            font-family: Georgia, "Times New Roman", Times, serif;
+            font-family: 'fontname';
+            font-size: 36pt;
+        }
+        */
+    
+    .hex-row {
+        letter-spacing: -2px;
+        /* was 2 */
+        line-height: 16px;
+        /* was 10  */
+    }
+    
+    .hex {
+        font-family: fontname;
+        /* line-height: 24px; */
+        /* was 12 */
+        font-size: 24px;
+        /* was not there */
+    }
+    
+    
+    .hex-row.row-b {
+        /*    width: 8px; */
+    }
+    
+    .little-space-hex {
+        /*    width: 8px; */
+        /*    float: left; */
+    }
+    
+    .hex-row.row-a {
+        margin-left: 10px;
+        /* was 7 */
+    }
+    
+    
+    .square {
+        width: 20px;
+        /* was 10 */
+        height: 20px;
+        /* was 10 */
+        /* background-color: blue; */
+        float: left;
+        border: gray;
+        border-style: solid;
+        border-width: 1px;
+    }
+    
+    .row-legend {
+        padding-left: 3px;
+        /* was */
+    }
+    
+    .square-row-index {
+        width: 40px;
+        /* was 20 */
+        height: 20px;
+        /* was 10 */
+        font-size: 24px;
+        /* was 12 */
+        /*  clear: both; */
+        float: left;
+    }
+    
+    .square-legend {
+        /* Safari */
+        -webkit-transform: rotate(-90deg);
+    
+        /* Firefox */
+        -moz-transform: rotate(-90deg);
+    
+        /* IE */
+        -ms-transform: rotate(-90deg);
+    
+        /* Opera */
+        -o-transform: rotate(-90deg);
+    
+        /* Internet Explorer */
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    
+        border-style: none;
+        border-width: 1px;
+        font-size: 16px;
+        /* was 8 */
+        margin-left: 1px;
+        padding-left: 1px;
+        padding-bottom: 5px;
+    }
+    
+    .little-space {
+        width: 10px;
+        /* was 5 */
+        height: 20px;
+        /* was 10 */
+        float: left;
+    
+    }
+    
+    .color-map {
+        width: 30px;
+        height: 20px;
+        float: left;
+        border: gray;
+        border-style: solid;
+        border-width: 1px;
+    }
+    
+    .row-a {
+        clear: both;
+        /*    float: left; */
+    }
+    
+    .row-b {
+        clear: both;
+        /*    float: left;  */
+    }
+    
+    .row-color-map {
+        margin-top: 5px;
+    
+    }
+    
+    .colorsample {
+        width: 20px;
+        height: 20px;
+        float: left;
+        background-color: red;
+        display: block;
+        position: relative;
+    }
+    
+    .commentaires {
+        margin-top: 20px;
+    }
+    
+    fieldset {
+        /*    float: left; */
+        display: inline-block;
+    }
+    
+    hr {
+        clear: both;
+    }
+    
+    .testfont-row {
+        font-family: fontname;
+        line-height: 12px;
+    }
+    
+    .clear {
+        clear: both;
+    }
+    
+    .bottom-links {
+        margin-top: 5px;
+    }
