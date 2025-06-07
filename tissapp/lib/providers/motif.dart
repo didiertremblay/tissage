@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:provider/provider.dart';
 
@@ -83,6 +84,23 @@ class MotifProvider with ChangeNotifier {
   // Hardcoded for now
   final config = Config.fromJson(json.decode(configJson));
   final motif = Motif.fromJson(json.decode(motifJson));
+
+  changeMotif(int x, int y, Color color) {
+    if (y < 0 ||
+        y >= motif.motif.length ||
+        x < 0 ||
+        x >= motif.motif[0].length) {
+      throw RangeError('Index out of range');
+    }
+
+    final couleurString = "#${(color.r * 255).toInt().toRadixString(16)}"
+        "${(color.g * 255).toInt().toRadixString(16)}"
+        "${(color.b * 255).toInt().toRadixString(16)}";
+
+    // Update the color in the motif
+    motif.motif[y][x]['couleur'] = couleurString;
+    notifyListeners();
+  }
 
   MotifProvider() {
     print("Motif created");

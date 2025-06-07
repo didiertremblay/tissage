@@ -40,16 +40,14 @@ class HomeApp extends StatelessWidget {
         children: [
           Center(
               child: PatternWidget(
-            motif: motif.motif,
-          )),
+                  // motif: motif.motif,
+                  )),
           Divider(),
           Expanded(
             child: ListView.builder(
                 itemCount: 888,
                 itemBuilder: (context, index) {
-                  return PatternWidget(
-                    motif: motif.motif,
-                  );
+                  return PatternWidget();
                 }),
           ),
         ],
