@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterOutlet } from '@angular/router';
 import { PresetConfigComponent } from './preset-config/preset-config.component';
 import { FormConfigComponent } from './form-config/form-config.component';
+import { CouleursComponent } from './couleurs/couleurs.component';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ import { FormConfigComponent } from './form-config/form-config.component';
     CommonModule, 
     RouterOutlet,
     FormConfigComponent,
+    CouleursComponent,
     PresetConfigComponent
   ],
   templateUrl: './app.component.html',

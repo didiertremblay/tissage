@@ -1,0 +1,11 @@
+<div class="container-fluid">
+
+@for (row of motif; track $index) {
+    <div class="d-flex bd-highlight" [ngClass]="{ 'mx-auto': ($index%2!=0)}">
+        @for (col of row; track $index) {
+                <div class="p-2 flex-fill bd-highlight border border-primary">.</div>
+        }
+
+</div>
+}
+</div>

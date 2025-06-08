@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tissapp/pages/main.dart';
 
-import 'pages/homepage.dart';
+import 'pages/inkle.dart';
 import 'providers/motif.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MainApp extends StatelessWidget {
       create: (context) => MotifProvider(),
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: HomeApp(),
+        home: MainPage(),
       ),
     );
   }

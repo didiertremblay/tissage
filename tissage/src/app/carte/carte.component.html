@@ -14,11 +14,14 @@
     <h1>Avec CDK</h1>
     <app-motifcdk [motif]="motif"></app-motifcdk>
 } @else if (mode == 'svg') {
-    <h1>Avec CDK</h1>
+    <h1>Avec SVG</h1>
     <app-motifsvg [motif]="motif"></app-motifsvg>
 } @else if (mode == 'font') {
-    <h1>Avec CDK</h1>
+    <h1>Avec FONT</h1>
     <app-motiffont [motif]="motif"></app-motiffont>
+} @else if (mode == 'flex') {
+    <h1>Avec Flex</h1>
+    <app-motifflex [motif]="motif"></app-motifflex>
 } @else if (mode == 'html') {
 
 } @else {
@@ -46,6 +49,11 @@
     <h1>Carte Font</h1>
     @for (i of [].constructor(nbRangs/2); track $index) {
         <app-motiffont [motif]="motif"></app-motiffont>
+    }
+} @else if (mode == 'flex') {
+    <h1>Carte Font</h1>
+    @for (i of [].constructor(nbRangs/2); track $index) {
+        <app-motifflex [motif]="motif"></app-motifflex>
     }
 } @else if (mode == 'html') {
 

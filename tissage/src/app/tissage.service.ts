@@ -84,8 +84,8 @@ export class TissageService {
     this.config = forConfig;
     this.motif = motif;
 
-    console.log(motif);
-    console.log(forConfig);
+    console.log(JSON.stringify(motif));
+    console.log(JSON.stringify(forConfig));
   }
 
   getRow(prefix: string, longueur: number, rawMotif: any) {

@@ -8,6 +8,7 @@ import { MotifsvgComponent } from '../motifsvg/motifsvg.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MotiffontComponent } from '../motiffont/motiffont.component';
+import { MotifflexComponent } from '../motifflex/motifflex.component';
 
 @Component({
   selector: 'app-carte',
@@ -18,6 +19,7 @@ import { MotiffontComponent } from '../motiffont/motiffont.component';
     MotifComponent,
     MotifcdkComponent,
     MotiffontComponent,
+    MotifflexComponent,
     MotifsvgComponent
   ],
   templateUrl: './carte.component.html',

@@ -6,8 +6,8 @@ import 'package:tissapp/widgets/pattern.dart';
 import '../providers/motif.dart';
 import 'printPage.dart';
 
-class HomeApp extends StatelessWidget {
-  const HomeApp({
+class InklePage extends StatelessWidget {
+  const InklePage({
     super.key,
   });
 
