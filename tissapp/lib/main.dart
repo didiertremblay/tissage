@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tissapp/pages/main.dart';
+import 'package:tissapp/providers/tissage.dart';
 
 import 'pages/inkle.dart';
 import 'providers/motif.dart';
@@ -14,8 +15,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => MotifProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => MotifProvider()),
+        ChangeNotifierProvider(create: (context) => TissageProvider()),
+      ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
         home: MainPage(),

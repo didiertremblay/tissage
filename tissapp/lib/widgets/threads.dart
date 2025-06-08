@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class SequenceWidget extends StatelessWidget {
-  const SequenceWidget({required this.patternGrid, super.key});
+class ThreadsWidget extends StatelessWidget {
+  const ThreadsWidget({required this.threadGrid, super.key});
 
-  final List<List<bool>> patternGrid;
+  final List<List<bool>> threadGrid;
 
   @override
   Widget build(BuildContext context) {
@@ -11,21 +11,21 @@ class SequenceWidget extends StatelessWidget {
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: patternGrid.length,
+        crossAxisCount: threadGrid.length,
         childAspectRatio: 1.0,
       ),
-      itemCount: patternGrid.length * patternGrid[0].length,
+      itemCount: threadGrid.length * threadGrid[0].length,
       itemBuilder: (context, index) {
-        final row = index ~/ patternGrid[0].length;
-        final col = index % patternGrid[0].length;
+        final row = index ~/ threadGrid[0].length;
+        final col = index % threadGrid[0].length;
         return GestureDetector(
           onTap: () {
-            // Handle pattern tap
+            // Handle pedal tap
           },
           child: Container(
             margin: const EdgeInsets.all(2.0),
             decoration: BoxDecoration(
-              color: patternGrid[row][col] ? Colors.green : Colors.lightGreen,
+              color: threadGrid[row][col] ? Colors.blue : Colors.grey,
               borderRadius: BorderRadius.circular(8.0),
             ),
           ),

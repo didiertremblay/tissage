@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 class PedalsWidget extends StatelessWidget {
-  const PedalsWidget({
-    required this.pedalsGrid,
-    super.key});
+  const PedalsWidget({required this.pedalsGrid, super.key});
 
   final List<List<bool>> pedalsGrid;
 
@@ -12,8 +10,8 @@ class PedalsWidget extends StatelessWidget {
     return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 4,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: pedalsGrid.length,
         childAspectRatio: 1.0,
       ),
       itemCount: pedalsGrid.length * pedalsGrid[0].length,

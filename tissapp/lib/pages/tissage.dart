@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:tissapp/widgets/gridcontrol.dart';
+import 'package:tissapp/widgets/patterngrid.dart';
+import 'package:tissapp/widgets/pedals.dart';
+import 'package:tissapp/widgets/threads.dart';
 
-class TissageProvider with ChangeNotifier {
-  // Add properties and methods to manage the tissage state
-  // For example, you might want to manage a list of threads, colors, etc.
-
-  final List<List<bool>> _pedalsGrid =
-      List.generate(4, (index) => List.filled(4, false));
-  final List<List<bool>> _threadsGrid =
-      List.generate(20, (index) => List.filled(4, false));
-  final List<List<bool>> _sequenceGrid =
-      List.generate(4, (index) => List.filled(30, false));
-}
+import '../providers/tissage.dart';
+import '../widgets/pattern.dart';
 
 class TissagePage extends StatefulWidget {
   const TissagePage({super.key});
@@ -22,6 +18,8 @@ class TissagePage extends StatefulWidget {
 class _TissagePageState extends State<TissagePage> {
   @override
   Widget build(BuildContext context) {
+    final tissage = Provider.of<TissageProvider>(context);
+
     return Row(
       children: [
         Expanded(
@@ -29,17 +27,21 @@ class _TissagePageState extends State<TissagePage> {
             children: [
               // Placeholder for the pattern grid
               Expanded(
-                child: Container(
-                    color: Colors.grey[200],
-                    child: const Center(child: Text('Pattern Grid'))),
-              ),
+                  child: GridControlWidget(
+                gridData: tissage.pedalsGrid,
+                onCellTap: (x, y) {
+                  tissage.togglePedal(x, y);
+                },
+              )),
               // Placeholder for the pedals grid
               Expanded(
-                flex: 5,
-                child: Container(
-                    color: Colors.green[300],
-                    child: const Center(child: Text('Pedals Grid'))),
-              ),
+                  flex: 5,
+                  child: GridControlWidget(
+                    gridData: tissage.sequenceGrid,
+                    onCellTap: (x, y) {
+                      tissage.toggleSequence(x, y);
+                    },
+                  ))
             ],
           ),
         ),
@@ -49,17 +51,16 @@ class _TissagePageState extends State<TissagePage> {
             children: [
               // Placeholder for the threads grid
               Expanded(
-                child: Container(
-                  color: Colors.blue[400],
-                  child: const Center(child: Text('Sequence Grid')),
+                child: GridControlWidget(
+                  gridData: tissage.threadsGrid,
+                  onCellTap: (x, y) {
+                    tissage.toggleThread(x, y);
+                  },
                 ),
               ),
               Expanded(
                 flex: 5,
-                child: Container(
-                  color: Colors.red[300],
-                  child: const Center(child: Text('Pattern Grid')),
-                ),
+                child: PatternGridWidget(),
               ),
             ],
           ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
-import 'package:tissapp/widgets/pattern.dart';
+import 'package:tissapp/widgets/inkpattern.dart';
 
 import '../providers/motif.dart';
 import 'printPage.dart';
@@ -39,7 +39,7 @@ class InklePage extends StatelessWidget {
       body: Column(
         children: [
           Center(
-              child: PatternWidget(
+              child: InklePatternWidget(
                   // motif: motif.motif,
                   )),
           Divider(),
@@ -47,7 +47,7 @@ class InklePage extends StatelessWidget {
             child: ListView.builder(
                 itemCount: 888,
                 itemBuilder: (context, index) {
-                  return PatternWidget();
+                  return InklePatternWidget();
                 }),
           ),
         ],
