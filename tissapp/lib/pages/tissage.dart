@@ -36,11 +36,13 @@ class _TissagePageState extends State<TissagePage> {
               // Placeholder for the pedals grid
               Expanded(
                   flex: 5,
-                  child: GridControlWidget(
-                    gridData: tissage.sequenceGrid,
-                    onCellTap: (x, y) {
-                      tissage.toggleSequence(x, y);
-                    },
+                  child: SingleChildScrollView(
+                    child: GridControlWidget(
+                      gridData: tissage.sequenceGrid,
+                      onCellTap: (x, y) {
+                        tissage.toggleSequence(x, y);
+                      },
+                    ),
                   ))
             ],
           ),
