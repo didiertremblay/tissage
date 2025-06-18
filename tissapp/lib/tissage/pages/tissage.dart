@@ -23,41 +23,73 @@ class _TissagePageState extends State<TissagePage> {
       final maxX = tissage.threadsGrid.length + tissage.pedalsGrid.length;
       final maxY = tissage.sequenceGrid[0].length + tissage.pedalsGrid.length;
       final cellSize = min(
-        constraints.maxWidth / maxX,
-        constraints.maxHeight / maxY,
+        constraints.maxWidth / (maxX + 6),
+        constraints.maxHeight / (maxY + 1),
       );
-      print(
-          "maxX: $maxX, maxY: $maxY, cellSize: $cellSize, constraints: $constraints");
 
       return Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Expanded(
-            child: Row(
-              children: [
-                // Placeholder for the pattern grid
-                Expanded(
-                    flex: tissage.pedalsGrid.length,
-                    child: GridControlWidget(
-                      gridData: tissage.pedalsGrid,
-                      cellSize: cellSize,
-                      onCellTap: (x, y) {
-                        tissage.togglePedal(x, y);
-                      },
-                    )),
-                // Placeholder for the threads grid
-                Expanded(
-                  flex: tissage.threadsGrid.length,
-                  child: GridControlWidget(
-                    gridData: tissage.threadsGrid,
-                    cellSize: cellSize,
-                    onCellTap: (x, y) {
-                      tissage.toggleThread(x, y);
-                    },
-                  ),
+            child: Container(
+              decoration: BoxDecoration(
+                //color: Colors.indigo[100],
+                border: const Border(
+                  bottom: BorderSide(color: Colors.grey, width: 4.0),
                 ),
-              ],
+              ),
+              child: Row(
+                children: [
+                  // Placeholder for the pattern grid
+                  Expanded(
+                      flex: tissage.pedalsGrid.length,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.amber[200],
+                          border: const Border(
+                            right: BorderSide(color: Colors.grey, width: 4.0),
+                          ),
+                        ),
+                        child: Center(
+                          child: GridControlWidget(
+                            gridData: tissage.pedalsGrid,
+                            cellSize: cellSize,
+                            onCellTap: (x, y) {
+                              tissage.togglePedal(x, y);
+                            },
+                          ),
+                        ),
+                      )),
+                  // Placeholder for the threads grid
+                  /*
+                  Container(
+                    color: Colors.black,
+                    width: cellSize * 0.2,
+                  ),
+                  */
+                  Expanded(
+                    flex: tissage.threadsGrid.length,
+                    child: Center(
+                      child: GridControlWidget(
+                        gridData: tissage.threadsGrid,
+                        cellSize: cellSize,
+                        onCellTap: (x, y) {
+                          tissage.toggleThread(x, y);
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
+          /*
+          Divider(
+            color: Colors.black,
+            thickness: 1.0,
+          ),
+          */
           Expanded(
             flex: 5,
             child: SingleChildScrollView(
@@ -65,18 +97,31 @@ class _TissagePageState extends State<TissagePage> {
                 children: [
                   // Placeholder for the pedals grid
                   Expanded(
-                      flex: tissage.pedalsGrid.length,
-                      child: GridControlWidget(
-                        gridData: tissage.sequenceGrid,
-                        cellSize: cellSize,
-                        onCellTap: (x, y) {
-                          tissage.toggleSequence(x, y);
-                        },
-                      )),
+                    flex: tissage.pedalsGrid.length,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.blue.shade100,
+                        border: const Border(
+                          right: BorderSide(color: Colors.grey, width: 4.0),
+                        ),
+                      ),
+                      child: Center(
+                        child: GridControlWidget(
+                          gridData: tissage.sequenceGrid,
+                          cellSize: cellSize,
+                          onCellTap: (x, y) {
+                            tissage.toggleSequence(x, y);
+                          },
+                        ),
+                      ),
+                    ),
+                  ),
                   Expanded(
                     flex: tissage.threadsGrid.length,
-                    child: PatternGridWidget(
-                      cellSize: cellSize,
+                    child: Center(
+                      child: PatternGridWidget(
+                        cellSize: cellSize,
+                      ),
                     ),
                   ),
                 ],

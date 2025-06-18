@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:ui';
 import 'package:flutter/foundation.dart';
-import 'package:provider/provider.dart';
 
 const configJson =
     '{"name":"test","patron_date":"août+2010+Lac+St-Jean","patron_chaine":"Orlec+2/8",'

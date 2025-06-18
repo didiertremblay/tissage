@@ -28,7 +28,6 @@ class InklePatternWidget extends StatelessWidget {
             final newColor = await showDialog(
               context: ctx,
               builder: (context) {
-                bool returned = false;
                 Color selectedColor = Color(
                   int.parse(
                     "FF${(row[i]['couleur'] as String).substring(1)}",

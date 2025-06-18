@@ -45,34 +45,34 @@ class PatternGridWidget extends StatelessWidget {
       ].reduce((a, b) => a | b);
     }
 
-    return LayoutBuilder(builder: (context, constraints) {
-      return Row(
-        children: [
-          for (var x = 0; x < maxX; x++)
-            Column(
-              children: [
-                for (var y = 0; y < maxY; y++)
-                  GestureDetector(
-                    onTap: () {
-                      // Handle tap on the grid cell
-                      //print('Tapped on cell ($x, $y)');
-                    },
-                    child: Container(
-                      width: cellSize,
-                      height: cellSize,
-                      margin: const EdgeInsets.all(2.0),
-                      decoration: BoxDecoration(
-                        color: isIntersecting(x, y)
-                            ? Colors.green
-                            : Colors.lightGreen,
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        for (var x = 0; x < maxX; x++)
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              for (var y = 0; y < maxY; y++)
+                GestureDetector(
+                  onTap: () {
+                    // Handle tap on the grid cell
+                    //print('Tapped on cell ($x, $y)');
+                  },
+                  child: Container(
+                    width: cellSize,
+                    height: cellSize,
+                    margin: const EdgeInsets.all(2.0),
+                    decoration: BoxDecoration(
+                      color: isIntersecting(x, y)
+                          ? Colors.green
+                          : Colors.lightGreen,
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
-              ],
-            ),
-        ],
-      );
-    });
+                ),
+            ],
+          ),
+      ],
+    );
   }
 }
