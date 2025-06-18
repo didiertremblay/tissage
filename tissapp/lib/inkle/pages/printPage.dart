@@ -8,7 +8,6 @@ import 'package:pdf/widgets.dart' as pw;
 import 'package:provider/provider.dart';
 
 import '../providers/motif.dart';
-import '../widgets/inkpattern.dart';
 import '../widgets/printPattern.dart';
 
 // From : https://pub.dev/packages/printing/example

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
-import 'package:tissapp/widgets/inkpattern.dart';
 
+import '../widgets/inkpattern.dart';
 import '../providers/motif.dart';
 import 'printPage.dart';
 

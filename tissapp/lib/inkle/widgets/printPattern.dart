@@ -1,6 +1,6 @@
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
-import 'package:tissapp/providers/motif.dart';
+import 'package:tissapp/inkle/providers/motif.dart';
 
 // Display the trame of the pattern
 

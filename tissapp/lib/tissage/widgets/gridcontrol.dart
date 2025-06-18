@@ -6,10 +6,12 @@ class GridControlWidget extends StatelessWidget {
   const GridControlWidget({
     this.gridData = const [],
     required this.onCellTap,
+    required this.cellSize,
     super.key,
   });
 
   final List<List<bool>> gridData;
+  final double cellSize;
   final Function(int x, int y) onCellTap;
 
   @override
@@ -18,10 +20,6 @@ class GridControlWidget extends StatelessWidget {
     final int maxY = gridData.isNotEmpty ? gridData[0].length : 0;
 
     return LayoutBuilder(builder: (context, constraints) {
-      final cellSize = min(
-        constraints.maxWidth / (maxX + 2),
-        constraints.maxHeight / (maxY + 2),
-      );
       return Row(
         children: [
           for (var x = 0; x < maxX; x++)
@@ -32,7 +30,7 @@ class GridControlWidget extends StatelessWidget {
                     onTap: () {
                       // Handle tap on the grid cell
                       onCellTap(x, y);
-                      print('Tapped on cell ($x, $y)');
+                      //print('Tapped on cell ($x, $y)');
                     },
                     child: Container(
                       width: cellSize,

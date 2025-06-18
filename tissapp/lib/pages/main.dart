@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tissapp/pages/tissage.dart';
+import 'package:tissapp/tissage/pages/tissage.dart';
 
-import 'inkle.dart';
+import '../inkle/pages/inkle.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});

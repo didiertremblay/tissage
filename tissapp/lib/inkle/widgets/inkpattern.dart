@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:provider/provider.dart';
-import 'package:tissapp/providers/motif.dart';
+import 'package:tissapp/inkle/providers/motif.dart';
 
 // Display the trame of the pattern
 

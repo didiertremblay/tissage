@@ -6,7 +6,9 @@ import 'package:provider/provider.dart';
 import '../providers/tissage.dart';
 
 class PatternGridWidget extends StatelessWidget {
-  const PatternGridWidget({super.key});
+  const PatternGridWidget({super.key, required this.cellSize});
+
+  final double cellSize;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,7 @@ class PatternGridWidget extends StatelessWidget {
                   : false
           ].reduce((a, b) => a | b)
       ];
-      print('Pedal Row: $pedalRow');
+      //print('Pedal Row: $pedalRow');
 
       return [
         for (var i = 0; i < 4; i++)
@@ -44,11 +46,6 @@ class PatternGridWidget extends StatelessWidget {
     }
 
     return LayoutBuilder(builder: (context, constraints) {
-      final cellSize = min(
-        constraints.maxWidth / (maxX + 2),
-        constraints.maxHeight / (maxY + 2),
-      );
-
       return Row(
         children: [
           for (var x = 0; x < maxX; x++)
@@ -58,7 +55,7 @@ class PatternGridWidget extends StatelessWidget {
                   GestureDetector(
                     onTap: () {
                       // Handle tap on the grid cell
-                      print('Tapped on cell ($x, $y)');
+                      //print('Tapped on cell ($x, $y)');
                     },
                     child: Container(
                       width: cellSize,

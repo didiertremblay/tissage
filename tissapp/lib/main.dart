@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tissapp/pages/main.dart';
-import 'package:tissapp/providers/tissage.dart';
+import 'package:tissapp/tissage/providers/tissage.dart';
 
-import 'pages/inkle.dart';
-import 'providers/motif.dart';
+import 'inkle/pages/inkle.dart';
+import 'inkle/providers/motif.dart';
 
 void main() {
   runApp(const MainApp());
