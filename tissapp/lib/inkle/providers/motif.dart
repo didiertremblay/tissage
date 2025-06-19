@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:ui';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 
 const configJson =
@@ -81,8 +82,8 @@ class Motif {
 
 class MotifProvider with ChangeNotifier {
   // Hardcoded for now
-  final config = Config.fromJson(json.decode(configJson));
-  final motif = Motif.fromJson(json.decode(motifJson));
+  Config config = Config.fromJson(json.decode(configJson));
+  Motif motif = Motif.fromJson(json.decode(motifJson));
 
   changeMotif(int x, int y, Color color) {
     if (y < 0 ||
@@ -101,9 +102,94 @@ class MotifProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  Map<String, String> get motifToMap {
+    final map = <String, String>{};
+    for (var y = 0; y < motif.motif.length; y++) {
+      for (var x = 0; x < motif.motif[y].length; x++) {
+        final couleur = motif.motif[y][x]['couleur'] ?? '';
+        map['$x,$y'] = couleur;
+      }
+    }
+    return map;
+  }
+
+  save() async {
+    // Here you would typically save the motif to a database or file
+    // For now, we just print it to the console
+    print('Saving motif: ${motif.toString()}');
+
+    final motifMap = {
+      'name': config.name,
+      'patron_date': config.patronDdate,
+      'patron_chaine': config.patronChaine,
+      'patron_trame': config.patronTrame,
+      'patron_fils_chaine': config.patronFilsChaine,
+      'width': config.width,
+      'height': config.height,
+      'colors': config.colors,
+      'commentaires': config.commentaires,
+      'motif': motifToMap,
+    };
+
+    // Save to Firestore
+    try {
+      await FirebaseFirestore.instance.collection('motifs').add(motifMap);
+      print('Motif saved to Firestore');
+    } catch (e) {
+      print('Error saving motif to Firestore: $e');
+    }
+  }
+
+  load() async {
+    // Here you would typically load the motif from a database or file
+    // For now, we just print a message
+    print('Loading motif...');
+    // You can implement loading logic here if needed
+    try {
+      final snapshot = await FirebaseFirestore.instance
+          .collection('/motifs')
+          .where('name', isEqualTo: "testdid")
+          .get();
+      if (snapshot.docs.isNotEmpty) {
+        final data = snapshot.docs.first.data();
+        config = Config(
+            colors: List<String>.from(data['colors']),
+            commentaires: data['commentaires'],
+            height: data['height'],
+            name: data['name'],
+            patronChaine: data['patron_chaine'],
+            patronDdate: data['patron_date'],
+            patronFilsChaine: data['patron_fils_chaine'],
+            patronTrame: data['patron_trame'],
+            width: data['width']);
+
+        print('Config loaded: $config');
+
+        final motifData = data['motif'];
+        // Convert the Map<String, String> to List<List<Map<String, String>>>
+        final List<List<Map<String, String>>> motifList = [];
+        for (var y = 0; y < 2; y++) {
+          final List<Map<String, String>> row = [];
+          for (var x = 0; x < config.width; x++) {
+            final key = '$x,$y';
+            final couleur =
+                motifData[key] ?? '#FF0000'; // Default to red if not found
+            row.add({'couleur': couleur});
+          }
+          motifList.add(row);
+        }
+
+        motif = Motif(motif: motifList);
+        notifyListeners();
+      }
+    } catch (e) {
+      print('Error loading motif: $e');
+    }
+  }
+
   MotifProvider() {
-    print("Motif created");
-    print(config);
-    print(motif);
+    //print("Motif created");
+    //print(config);
+    //print(motif);
   }
 }

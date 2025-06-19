@@ -33,6 +33,18 @@ class InklePage extends StatelessWidget {
               );
             },
           ),
+          IconButton(
+            icon: const Icon(Icons.save),
+            onPressed: () {
+              motif.save();
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: () {
+              motif.load();
+            },
+          ),
         ],
       ),
       body: Column(

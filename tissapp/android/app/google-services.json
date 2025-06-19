@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "641576625379",
+    "project_id": "fdtissage",
+    "storage_bucket": "fdtissage.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:641576625379:android:cb20ad6736ebbab41811d6",
+        "android_client_info": {
+          "package_name": "space.fdtt.tissapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAx0MDhdMNgMW9jbY29TKOuj20d96UT8sc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
